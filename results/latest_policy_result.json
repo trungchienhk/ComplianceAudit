@@ -1,0 +1,8 @@
+{
+  "policy_id": "POL-ENC-01",
+  "policy_name": "PII Data Encryption at Rest",
+  "resource_id": "customer-raw/customers/customer_sample.csv",
+  "evidence_id": "a3ff12c4-3b84-434c-aaed-682dcf917133",
+  "status": "ERROR",
+  "reason": "Encryption status cannot be determined."
+}

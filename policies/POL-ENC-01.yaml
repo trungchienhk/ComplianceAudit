@@ -1,0 +1,28 @@
+
+policy_id: POL-ENC-01
+name: PII Data Encryption at Rest
+version: "1.0"
+
+description: >
+  Require explicit evidence of server-side encryption
+  for objects classified as PII.
+
+scope:
+  resource_type: S3_OBJECT
+  classification_tag:
+    key: data-classification
+    value: PII
+
+evaluation:
+  encryption_observation_field: encryption_observation.status
+
+  pass_when:
+    - EXPLICIT_HEADER_PRESENT
+
+  fail_when:
+    - EXPLICIT_ENCRYPTION_DISABLED
+
+  error_when:
+    - NOT_DETERMINED
+    - EVIDENCE_MISSING
+    - INVALID_EVIDENCE
